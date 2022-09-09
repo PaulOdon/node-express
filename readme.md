@@ -15,34 +15,34 @@
 
 ## summary
 
-- part 3 : the first page
+### part 3 : the first page
 
-* config dev environment by installing some package tools
-* config code to serving staic file
+- config dev environment by installing some package tools
+- config code to serving staic file
 
-- part 4: setting up tooling
+### part 4: setting up tooling
 
-* npm scripts
+- npm scripts
   config script in the package.json file to run customise command
-* nodemon
+- nodemon
   config nodemon to watch every modication on the files system
-* env variables
+- env variables
   config env variable for the system
 
-- part 5 : templating engine
+### part 5 : templating engine
 
-* templating engine ==> EJS
+- templating engine ==> EJS
   install ejs package
   tools
-* passing data to page
-* working with template
+- passing data to page
+- working with template
 
-- using routing to build multiple pages
+\*\* using routing to build multiple pages
 
-* implementing navigation
-* implementing router
-* rendering the page
-* passing data
-* creating a single item route
-* rendering a single item
-* separate outer files
+- implementing navigation
+- implementing router
+- rendering the page
+- passing data
+- creating a single item route
+- rendering a single item
+- separate outer files
