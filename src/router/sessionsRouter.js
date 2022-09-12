@@ -1,17 +1,47 @@
 const express = require("express");
-const sessions = require("../data/sessions.json");
+const debug = require("debug")("app:sessionsRouter");
+const { MongoClient, ObjectID } = require("mongodb");
 
 const sessionsRouter = express.Router();
+const url = process.env.DB_URL;
+const dbName = process.env.DB_NAME;
 
 sessionsRouter.route("/").get((req, res) => {
-  res.render("sessions", {
-    sessions,
-  });
+  (async function mongo() {
+    let client;
+    try {
+      client = await MongoClient.connect(url);
+      debug("Connected to mongo db");
+
+      const db = client.db(dbName);
+
+      const sessions = await db.collection("sessions").find().toArray();
+      res.render("sessions", { sessions });
+    } catch (error) {
+      debug(error.stack);
+    }
+  })();
 });
 
 sessionsRouter.route("/:id").get((req, res) => {
   const id = req.params.id;
-  res.render("session", { session: sessions[id] });
+
+  (async function mongo() {
+    let client;
+    try {
+      client = await MongoClient.connect(url);
+      debug("Connected to mongo db");
+
+      const db = client.db(dbName);
+
+      const session = await db
+        .collection("sessions")
+        .findOne({ _id: new ObjectID(id) });
+      res.render("session", { session });
+    } catch (error) {
+      debug(error.stack);
+    }
+  })();
 });
 
 module.exports = sessionsRouter;

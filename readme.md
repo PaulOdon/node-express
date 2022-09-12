@@ -37,7 +37,7 @@
 - passing data to page
 - working with template
 
-\*\* using routing to build multiple pages
+### part 6 : using routing to build multiple pages
 
 - implementing navigation
 - implementing router
@@ -46,3 +46,22 @@
 - creating a single item route
 - rendering a single item
 - separate outer files
+
+### part 7 : connecting to a database
+
+- setting up mongo db
+- creating admin route
+- inserting sessions
+- selecting sessions
+- selecting one session
+
+### part 8 : securing application
+
+- implementing signup
+- creating Auth Routes
+- configuring passport
+- local strategy
+- creating user
+- signing in
+- authorizing users
+- validating users

@@ -4,10 +4,10 @@ const debug = require("debug")("app:adminRouter");
 const { MongoClient } = require("mongodb");
 
 const adminRouter = express.Router();
+const url = process.env.DB_URL;
+const dbName = process.env.DB_NAME;
 
-adminRouter.get("/").get((req, res) => {
-  const url = "mongodb://dbUser:mdp@mongodbname";
-  const dbName = "db_name";
+adminRouter.route("/").get((req, res) => {
   (async function mongo() {
     let client;
     try {
@@ -16,12 +16,12 @@ adminRouter.get("/").get((req, res) => {
 
       const db = client.db(dbName);
 
-      const response = await db.collectin("sessions").insertMany(sessions);
+      const response = await db.collection("sessions").insertMany(sessions);
       res.json(response);
     } catch (error) {
       debug(error.stack);
     }
-  });
+  })();
 });
 
 module.exports = adminRouter;

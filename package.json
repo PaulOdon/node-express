@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "set DEBUG=app & nodemon app.js",
+    "start": "set DEBUG=app, app:* & nodemon app.js",
     "debug": "set DEBUG=* & nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,17 +13,22 @@
   "license": "ISC",
   "dependencies": {
     "chalk": "4.1.1",
+    "cookie-parser": "^1.4.6",
     "debug": "4.3.1",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
+    "express-session": "^1.17.3",
     "mongodb": "^4.9.1",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "passport": "^0.6.0"
   },
   "nodemonConfig": {
     "restartable": "rs",
     "delay": 2500,
     "env": {
-      "PORT": 4000
+      "PORT": 4000,
+      "DB_NAME": "Globomantics",
+      "DB_URL": "mongodb://127.0.0.1:27017/Globomantics"
     }
   }
 }
