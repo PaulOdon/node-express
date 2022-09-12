@@ -21,6 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(expressSession({ secret: "globomantics" }));
 
+require("./src/config/passport.js")(app);
+
 app.set("views", "./src/views");
 app.set("view engine", "ejs");
 
