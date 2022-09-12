@@ -6,6 +6,11 @@ const sessionsRouter = express.Router();
 const url = process.env.DB_URL;
 const dbName = process.env.DB_NAME;
 
+sessionsRouter.use((req, res, next) => {
+  if (req.user) next();
+  else res.redirect("/auth/signin");
+});
+
 sessionsRouter.route("/").get((req, res) => {
   (async function mongo() {
     let client;
