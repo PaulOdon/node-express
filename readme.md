@@ -65,3 +65,9 @@
 - signing in
 - authorizing users
 - validating users
+
+### part 9: third party APIs
+
+- starting the API
+- creating service
+- calling service

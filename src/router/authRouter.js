@@ -10,7 +10,7 @@ authRouter.route("/signUp").post((req, res) => {
   const url = process.env.DB_URL;
   const dbName = process.env.DB_NAME;
 
-  (async function adduser() {
+  (async function addUser() {
     let client;
     try {
       client = await MongoClient.connect(url);
@@ -26,6 +26,7 @@ authRouter.route("/signUp").post((req, res) => {
     } catch (error) {
       debug(error);
     }
+    client.close();
   })();
 });
 

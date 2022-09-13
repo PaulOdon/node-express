@@ -26,7 +26,7 @@ module.exports = function localStrategy() {
 
             console.log("fetched user ", user);
 
-            if (user.username === username && user.password === password) {
+            if (user && user.password === password) {
               done(null, user);
             } else {
               done(null, false);
@@ -36,8 +36,6 @@ module.exports = function localStrategy() {
           }
           await client.close();
         })();
-        const user = { username, password, name: "Jonathan" };
-        done(null, user);
       }
     )
   );
